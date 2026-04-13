@@ -2,10 +2,12 @@ from dotenv import load_dotenv
 from langchain_mistralai import ChatMistralAI
 from langchain_community.document_loaders import TextLoader
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_community.document_loaders import PyPDFLoader
 
 load_dotenv()
 
-data = TextLoader("Document Loaders/notes.txt")
+# data = TextLoader("Document Loaders/notes.txt")
+data = PyPDFLoader("Document Loaders/GRU.pdf")
 documents = data.load()
 
 template = ChatPromptTemplate.from_messages(
