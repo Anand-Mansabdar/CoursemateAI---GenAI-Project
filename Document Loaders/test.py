@@ -5,7 +5,7 @@ data = TextLoader("notes.txt", encoding="utf-8")
 # <langchain_community.document_loaders.text.TextLoader object at 0x00000176A63F0500> Generates this kind of output
 # print(data)
 
-splitter = CharacterTextSplitter(chunk_size=5, chunk_overlap=1, separator="")
+splitter = CharacterTextSplitter(chunk_size=5, chunk_overlap=1, separator="") 
 
 documents = data.load()
 
