@@ -19,11 +19,12 @@ chunks = splitter.split_documents(documents)
 # Create Embeddings
 from langchain_mistralai import MistralAIEmbeddings
 embedding_model = MistralAIEmbeddings(model="mistral-embed")
+
+
+# Store in Chroma
+from langchain_community.vectorstores import Chroma
 vector_store = Chroma.from_documents(
   documents=documents,
   embedding=embedding_model,
   persist_directory="chroma_db"
 )
-
-# Store in Chroma
-from langchain_community.vectorstores import Chroma
