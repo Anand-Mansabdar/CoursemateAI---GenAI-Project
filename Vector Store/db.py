@@ -18,3 +18,16 @@ vector_store = Chroma.from_documents(
   embedding=embedding_model,
   persist_directory="chroma_db"
 )
+
+result = vector_store.similarity_search("What is used for Data Analysis?", k=1)
+
+for r in result:
+  print(r.page_content)
+  print(r.metadata)
+  
+retriver = vector_store.as_retriever()
+
+documents = retriver.invoke("Explain deep learning.")
+
+for d in documents:
+  print(d.page_content)
