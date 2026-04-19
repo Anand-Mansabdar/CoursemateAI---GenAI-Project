@@ -17,8 +17,10 @@ splitter = RecursiveCharacterTextSplitter(
 chunks = splitter.split_documents(documents)
 
 # Create Embeddings
-from langchain_mistralai import MistralAIEmbeddings
-embedding_model = MistralAIEmbeddings(model="mistral-embed")
+from langchain_community.embeddings import HuggingFaceEmbeddings
+embedding_model = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-mpnet-base-v2"
+)
 
 
 # Store in Chroma
